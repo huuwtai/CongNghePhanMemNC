@@ -1,0 +1,46 @@
+﻿@model IEnumerable<OnlineTestWeb.Models.Nhóm_Câu_Hỏi>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenNhom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoCauHoi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Môn_Học.TenMon)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNhom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoCauHoi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Môn_Học.TenMon)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaNhom }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaNhom }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaNhom })
+        </td>
+    </tr>
+}
+
+</table>
